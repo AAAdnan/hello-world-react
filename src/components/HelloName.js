@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 export default function HelloName(props) {
     return(
         <p>
-            Hello, { props.name ? props.name : 'what is your name?' }
+            Hello, { props.name ? props.name : 'What is your name?' }
         </p>
     );
 }
