@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots HelloName with name 1`] = `
+<p>
+  Hello, 
+  Adnan
+</p>
+`;
+
+exports[`Storyshots HelloName without name 1`] = `
+<p>
+  Hello, 
+  What is your name?
+</p>
+`;
