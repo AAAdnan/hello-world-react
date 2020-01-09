@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import UserContext from '../UserContext';
 
-export default function HelloName(props) {
+export default function HelloName() {
+
+    const user = useContext(UserContext)
+
     return(
-        <p>
-            Hello, { props.name ? props.name : 'What is your name?' }
-        </p>
+            <p>
+                Hello, { user.name ? user.name : 'What is your name?' }
+            </p>
     );
 }
