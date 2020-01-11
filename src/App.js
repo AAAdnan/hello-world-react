@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import HelloName from './components/HelloName';
 import { UserProvider } from './UserContext';
 
-
 function App() {
 
-  const user = { name: 'Adnan' }
+  const [formName, setFormName] = useState('');
+
+  const callback = (name) => {
+    setFormName(name)
+  }
 
   return (
-    <UserProvider value={user}>
+    <UserProvider value={formName}>
       <div className="App">
-        <p>Hello World</p>
-        <HelloName />
+        <p>Hello </p>
+        <HelloName parentCallback={callback} />
       </div>
     </UserProvider>
   );
