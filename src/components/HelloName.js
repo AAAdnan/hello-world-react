@@ -22,15 +22,16 @@ export default function HelloName({ parentCallback }) {
             </p>
             <form onSubmit={handleSubmit}>
                 <label>
-                    First {name} :
+                    Name :
                     <input
+                    data-testid="firstInputItem"
                     type="text"
                     value={name}
                     name="name"
                     onChange={handleChange}
                     />
                 </label>
-                <input type="submit" value='submit' onClick={() => { parentCallback(name)}}/>
+                <input data-testid="secondInputItem" type="submit" value='submit' onClick={() => { parentCallback(name)}}/>
             </form>
             </React.Fragment>
     );

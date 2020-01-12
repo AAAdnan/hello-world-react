@@ -14,7 +14,6 @@ function App() {
   return (
     <UserProvider value={formName}>
       <div className="App">
-        <p>Hello </p>
         <HelloName parentCallback={callback} />
       </div>
     </UserProvider>

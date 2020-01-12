@@ -1,10 +1,8 @@
 import React from 'react';
-import {render, fireEvent, wait, cleanup} from '@testing-library/react';
+import {render, fireEvent, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import UserContext from '../UserContext';
 import HelloName from '../components/HelloName';
-
-afterEach(cleanup)
 
 function renderHelloName(user) {
     return render(
@@ -21,16 +19,36 @@ describe('This will test HelloName Component with context', () => {
     })
 
     it('Has element with text Hello {name}', () => {
-        const user = { name: 'Adnan' }
-        const { getByText } = renderHelloName(user);
-        expect(getByText(`Hello, ${user.name}`)).toBeInTheDocument();
+        const user = 'Adnan';
+        const { getByText } = renderHelloName(user); 
+        expect(getByText(`Hello, ${user}`)).toBeInTheDocument();
     });
 
     it('Has element with text Hello {name}', () => {
-        const user = { name: 'Jim' }
+        const user = 'Jim';
         const { getByText } = renderHelloName(user);
-        expect(getByText(`Hello, ${user.name}`)).toBeInTheDocument();
+        expect(getByText(`Hello, ${user}`)).toBeInTheDocument();
     });
 
 });
 
+describe('Testing Form Submmission', () => {
+    it('Form can submit a value', () => {
+        const callbackMock = jest.fn();
+        const { getByTestId } = render(<HelloName parentCallback={callbackMock} />);
+        const form = getByTestId('secondInputItem');
+        fireEvent.click(form);
+        expect(callbackMock).toHaveBeenCalledTimes(1);
+    })
+
+    // it('Form can submit a value and value is rendered', () => {
+      
+    //     const { getByTestId } = render(<HelloName } />);
+    //     const form = getByTestId('firstInputItem');
+    //     fireEvent.change(form, {target: {value: 'whamo'}});
+    //     getByTestId('secondInputItem').click();
+    //     expect(form.target.value).toBe('whamo');
+    // })
+});
+
+afterEach(cleanup);
